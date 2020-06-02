@@ -26,7 +26,6 @@ data Viaje = UnViaje {
     costo :: Float
 }deriving (Show)
 
-
 -- 2)
 
 cualquierViaje :: CondicionViaje
@@ -42,6 +41,31 @@ largoDelNombreDelCliente = length.nombreCliente.cliente
 
 noViveEnZonaDeterminada :: String -> CondicionViaje
 noViveEnZonaDeterminada zona = (/=zona) . vivienda . cliente
+
+-- 3)
+
+lucas :: Cliente
+lucas = UnCliente {
+    nombreCliente = "Lucas",
+    vivienda = "Victoria"
+}
+
+daniel :: Chofer
+daniel = UnChofer {
+    nombreChofer = "Daniel",
+    kilometraje = 23500,
+    viajes = [UnViaje (20,04,2017) lucas 150],
+    condicionViaje = noViveEnZonaDeterminada "Olivos"
+}
+
+
+alejandra :: Chofer
+alejandra = UnChofer {
+    nombreChofer = "Alejandra",
+    kilometraje = 180000,
+    viajes = [],
+    condicionViaje = cualquierViaje
+}
 
 -- Ejemplos: 
 
