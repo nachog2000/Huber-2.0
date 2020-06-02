@@ -23,7 +23,7 @@ data Cliente = UnCliente {
 data Viaje = UnViaje {
     fecha :: Fecha,
     cliente :: Cliente,
-    costo :: Float
+    costo :: Int
 }deriving (Show)
 
 -- 2)
@@ -67,6 +67,13 @@ alejandra = UnChofer {
     condicionViaje = cualquierViaje
 }
 
+
+-- 5)
+
+liquidacionChofer :: Chofer -> Int
+liquidacionChofer = sum. map costo. viajes
+
+
 -- Ejemplos: 
 
 clientePrueba = UnCliente {
@@ -77,7 +84,7 @@ clientePrueba = UnCliente {
 viajePrueba = UnViaje {
     fecha = (02,06,2020),
     cliente = (UnCliente "Paulita" "Devoto"),
-    costo = 1200.05
+    costo = 1200
 }
 
 
