@@ -67,11 +67,21 @@ alejandra = UnChofer {
     condicionViaje = cualquierViaje
 }
 
+-- 4)
+
+puedeTomarViaje :: Viaje -> Chofer -> Bool
+puedeTomarViaje viaje chofer = condicionViaje chofer $ viaje
 
 -- 5)
 
 liquidacionChofer :: Chofer -> Int
 liquidacionChofer = sum. map costo. viajes
+
+
+-- 6)
+
+realizarViaje :: Viaje -> [Chofer] -> [Chofer]
+realizarViaje
 
 
 -- Ejemplos: 
