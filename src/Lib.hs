@@ -29,6 +29,20 @@ data Viaje = UnViaje {
 
 -- 2)
 
+cualquierViaje :: CondicionViaje
+cualquierViaje _ = True
+
+viajeMayorA200 :: CondicionViaje
+viajeMayorA200 = (>200).costo
+
+viajeNombreCliente :: Int -> CondicionViaje
+viajeNombreCliente n = (>n).largoDelNombreDelCliente
+largoDelNombreDelCliente :: Viaje -> Int
+largoDelNombreDelCliente = length.nombreCliente.cliente
+
+noViveEnZonaDeterminada :: String -> CondicionViaje
+noViveEnZonaDeterminada zona = (/=zona) . vivienda . cliente
+
 -- Ejemplos: 
 
 clientePrueba = UnCliente {
