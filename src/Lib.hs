@@ -55,7 +55,7 @@ daniel = UnChofer {
     nombreChofer = "Daniel",
     kilometraje = 23500,
     viajes = [UnViaje (20,04,2017) lucas 150],
-    condicionViaje = noViveEnZonaDeterminada "Olivos"
+    condicionViaje = (noViveEnZonaDeterminada "Olivos")
 }
 
 
@@ -80,9 +80,18 @@ liquidacionChofer = sum. map costo. viajes
 
 -- 6)
 
-realizarViaje :: Viaje -> [Chofer] -> [Chofer]
-realizarViaje
+-- Los demas no los entiendo :(
 
+realizarViaje :: Viaje -> [Chofer] -> [Chofer]
+realizarViaje viaje = filter (puedeTomarViaje viaje)
+
+cuantosViajes :: Chofer -> Int
+cuantosViajes = length.viajes
+
+elQueMenosViajesHizo :: Chofer -> Chofer -> Chofer
+elQueMenosViajesHizo chofer1 chofer2
+    | cuantosViajes chofer1 > cuantosViajes chofer2 = chofer2
+    | otherwise = chofer1
 
 -- Ejemplos: 
 
@@ -96,6 +105,3 @@ viajePrueba = UnViaje {
     cliente = (UnCliente "Paulita" "Devoto"),
     costo = 1200
 }
-
-
-
