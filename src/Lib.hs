@@ -41,3 +41,27 @@ nombreLargo = length.nombreCliente.cliente
 
 clienteViveEnUnaZonaNoDeterminada :: String -> CondicionViaje
 clienteViveEnUnaZonaNoDeterminada zona = (/=zona).localidad.cliente
+
+-- 3)
+
+lucas :: Cliente
+lucas = UnCliente {
+    nombreCliente = "Lucas",
+    localidad = "Victoria"
+}
+
+daniel :: Chofer
+daniel = UnChofer {
+    nombreChofer = "Daniel",
+    kilometraje = 23500,
+    viajes = [UnViaje (20,04,2017) lucas 150],
+    condicionViaje = clienteViveEnUnaZonaNoDeterminada "Olivos"
+}
+
+alejandra :: Chofer
+alejandra = UnChofer {
+    nombreChofer = "Alejandra",
+    kilometraje = 180000,
+    viajes = [],
+    condicionViaje = cualquierViaje
+}
