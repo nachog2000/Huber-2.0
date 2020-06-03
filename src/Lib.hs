@@ -65,3 +65,9 @@ alejandra = UnChofer {
     viajes = [],
     condicionViaje = cualquierViaje
 }
+
+
+-- 5)
+
+liquidacionChofer :: Chofer -> Float
+liquidacionChofer = sum . map costo . viajes
